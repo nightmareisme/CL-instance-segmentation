@@ -23,7 +23,7 @@ Please follow the [document](https://detectron2.readthedocs.io/en/latest/tutoria
 
 ## Training
 
-* Training Mask R-CNN + DCL on Cityscapes dataset (initialized from ImageNet):
+* Training Mask R-CNN + CL on Cityscapes dataset (initialized from ImageNet):
 
     ```bash
     python train_net.py \
@@ -35,7 +35,7 @@ Please follow the [document](https://detectron2.readthedocs.io/en/latest/tutoria
         OUTPUT_DIR work_dirs/cityscapes_mask_rcnn_dcl
     ```
 
-* Training Mask R-CNN + DCL on COCO dataset:
+* Training Mask R-CNN + CL on Mini-COCO dataset:
 
     ```bash
     python train_net.py \
@@ -64,7 +64,7 @@ Note that we train with 4 GPUs by default.
         OUTPUT_DIR work_dirs/cityscapes_mask_rcnn_dcl
     ```
 
-* Test on COCO:
+* Test on Mini-COCO:
 
     ```bash
     python train_net.py \
@@ -79,10 +79,10 @@ Note that we train with 4 GPUs by default.
 
 | Detector   | Pretrain  | Dataset |  AP | Config | Checkpoint |
 | :------:   | :------:  | :------: | :------: | :------: | :------: |
-| Mask R-CNN | ImageNet | Cityscapes | 37.1 | [cityscapes_mask_rcnn_R_50_FPN.yaml](configs/cityscapes_mask_rcnn_R_50_FPN.yaml) |  |
-| Mask R-CNN | COCO     | Cityscapes | 38.6 | [cityscapes_mask_rcnn_R_50_FPN_coco.yaml](configs/cityscapes_mask_rcnn_R_50_FPN_coco.yaml) ||
-| RefineMask | ImageNet  | Cityscapes | 39.3 | [more_models/RefineMask](more_models/RefineMask) | |
-| Mask R-CNN | ImageNet  | COCO | 35.6 | [coco_mask_rcnn_R_50_FPN_1x.yaml](configs/coco_mask_rcnn_R_50_FPN_1x.yaml) | |
+| RefineMask | ImageNet | Cityscapes | 30.3 | [cityscapes_refineMask_R_50_FPN.yaml](configs/cityscapes_refineMask_R_50_FPN.yaml) |  |
+| RefineMask+CL |ImageNet  | Cityscapes | 31.6 | [cityscapes_refineMask_cl_R_50_FPN.yaml](configs/cityscapes_refineMask_cl_R_50_FPN.yaml) ||
+| RefineMask | ImageNet  | mini-COCO | 30.3 | [more_models/RefineMask](more_models/RefineMask) | |
+| RefineMask+CL | ImageNet  | mini-COCO | 30.5 | [coco_RefineMask+CL_R_50_FPN_1x.yaml](configs/RefineMask+CL_R_50_FPN_1x.yaml) | |
 
 
 ## Acknowledgments

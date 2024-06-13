@@ -5,7 +5,7 @@ In this work, we analyzed the segmentation errors of some typical instance segme
 
 ## Installation
 
-This project is based on [detectron2](https://github.com/facebookresearch/detectron2) framework. 
+This project is based on [detectron2](https://github.com/facebookresearch/detectron2) and [mmdetection].(https://github.com/open-mmlab/mmdetection)framework. 
 
 Please follow the [official instructions](https://detectron2.readthedocs.io/en/latest/tutorials/install.html) to install detectron2 first. 
 

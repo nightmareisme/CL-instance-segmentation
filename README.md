@@ -3,14 +3,9 @@
 
 In this work, we analyzed the segmentation errors of some typical instance segmentation models. We found that false negatives (i.e. misclassification of foreground pixels as background) accounted for the majority of errors. It can be attributed to the inconsistent features of the same instance under complex scenarios. To address this problem, we proposed a dense contrastive loss to encourage the segmentation network to learn more consistent feature representations. Specifically, features on the same instance are pulled closer, while features on different instances and features between instances and the background are pushed farther apart. Without introducing any extra inference cost, the proposed method mitigated false-negative errors and achieved significant improvements on the Cityscapes and MS-COCO datasets.
 
-<p align="center">
-<img src="pipeline.png" width="90%" alt="pipeline"/>
-</p>
-
-
 ## Installation
 
-This project is based on [detectron2](https://github.com/facebookresearch/detectron2) framework (v0.6, commit 8ba4dd8). 
+This project is based on [detectron2](https://github.com/facebookresearch/detectron2) framework. 
 
 Please follow the [official instructions](https://detectron2.readthedocs.io/en/latest/tutorials/install.html) to install detectron2 first. 
 
@@ -80,39 +75,17 @@ Note that we train with 4 GPUs by default.
         OUTPUT_DIR work_dirs/coco_mask_rcnn_dcl
     ```
 
-* Evaluate the three segmentation errors (i.e. fFP, bFP, FN):
-
-    ```bash
-    python tools/seg_error_analyze.py \
-        prediction.json \
-        -a ground_truth.json
-    ```
-
-
 ## Models
 
 | Detector   | Pretrain  | Dataset |  AP | Config | Checkpoint |
 | :------:   | :------:  | :------: | :------: | :------: | :------: |
-| Mask R-CNN | ImageNet | Cityscapes | 37.1 | [cityscapes_mask_rcnn_R_50_FPN.yaml](configs/cityscapes_mask_rcnn_R_50_FPN.yaml) | [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/25b641d7ea2f4b34ac82/?dl=1) |
-| Mask R-CNN | COCO     | Cityscapes | 38.6 | [cityscapes_mask_rcnn_R_50_FPN_coco.yaml](configs/cityscapes_mask_rcnn_R_50_FPN_coco.yaml) | [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/e819b0f1aabc42dcb482/?dl=1) |
-| RefineMask | ImageNet  | Cityscapes | 39.3 | [more_models/RefineMask](more_models/RefineMask) | [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/aed0b666c7d34454b4fa/?dl=1) |
-| Mask R-CNN | ImageNet  | COCO | 35.6 | [coco_mask_rcnn_R_50_FPN_1x.yaml](configs/coco_mask_rcnn_R_50_FPN_1x.yaml) | [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/4298adf3b07441188430/?dl=1) |
+| Mask R-CNN | ImageNet | Cityscapes | 37.1 | [cityscapes_mask_rcnn_R_50_FPN.yaml](configs/cityscapes_mask_rcnn_R_50_FPN.yaml) |  |
+| Mask R-CNN | COCO     | Cityscapes | 38.6 | [cityscapes_mask_rcnn_R_50_FPN_coco.yaml](configs/cityscapes_mask_rcnn_R_50_FPN_coco.yaml) ||
+| RefineMask | ImageNet  | Cityscapes | 39.3 | [more_models/RefineMask](more_models/RefineMask) | |
+| Mask R-CNN | ImageNet  | COCO | 35.6 | [coco_mask_rcnn_R_50_FPN_1x.yaml](configs/coco_mask_rcnn_R_50_FPN_1x.yaml) | |
 
 
 ## Acknowledgments
 
 This project is based on [detectron2](https://github.com/facebookresearch/detectron2). Thanks for their excellent work.
-
-
-## Citation
-
-```bibtex
-@inproceedings{Chen_2022_BMVC,
-author    = {Hang Chen and Chufeng Tang and Xiaolin Hu},
-title     = {Dense Contrastive Loss for Instance Segmentation},
-booktitle = {33rd British Machine Vision Conference 2022, {BMVC} 2022, London, UK, November 21-24, 2022},
-publisher = {{BMVA} Press},
-year      = {2022},
-url       = {https://bmvc2022.mpi-inf.mpg.de/1062.pdf}
-}
 ```
